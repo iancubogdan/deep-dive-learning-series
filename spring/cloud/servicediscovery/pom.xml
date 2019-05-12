@@ -16,7 +16,7 @@
         <dependency>
             <groupId>org.springframework.cloud</groupId>
             <artifactId>spring-cloud-starter-netflix-eureka-server</artifactId>
-            <version>${spring-cloud-starter-eureka.version}</version>
+            <version>${spring-cloud-netflix.version}</version>
         </dependency>
 
         <!--Because we are using java version >9-->

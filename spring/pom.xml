@@ -30,7 +30,7 @@
                 <plugin>
                     <groupId>org.springframework.boot</groupId>
                     <artifactId>spring-boot-maven-plugin</artifactId>
-                    <version>${spring-boot-maven-plugin.version}</version>
+                    <version>2.1.4.RELEASE</version>
                 </plugin>
             </plugins>
         </pluginManagement>
@@ -40,10 +40,13 @@
 
     <properties>
         <spring-boot.version>2.1.4.RELEASE</spring-boot.version>
-        <spring-cloud-dependencies.version>Finchley.SR2</spring-cloud-dependencies.version>
+        <spring-cloud-dependencies.version>Greenwich.SR1</spring-cloud-dependencies.version>
         <spring-boot-starter-web.version>2.1.4.RELEASE</spring-boot-starter-web.version>
         <spring-boot-maven-plugin.version>2.1.4.RELEASE</spring-boot-maven-plugin.version>
-        <spring-cloud-starter-eureka.version>2.1.1.RELEASE</spring-cloud-starter-eureka.version>
+        <!--<spring-cloud-starter-eureka.version>2.1.1.RELEASE</spring-cloud-starter-eureka.version>-->
+        <!--<spring-cloud-starter-hystrix.version>2.1.1.RELEASE</spring-cloud-starter-hystrix.version>-->
+        <!--<spring-cloud-starter-openfeign.version>2.1.1.RELEASE</spring-cloud-starter-openfeign.version>-->
+        <spring-cloud-netflix.version>2.1.1.RELEASE</spring-cloud-netflix.version>
     </properties>
 
 
