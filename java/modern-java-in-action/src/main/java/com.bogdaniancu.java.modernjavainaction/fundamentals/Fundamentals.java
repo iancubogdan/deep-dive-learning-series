@@ -1,4 +1,4 @@
-package com.java.learningSeries.modernjavainaction;
+package com.bogdaniancu.java.modernjavainaction.fundamentals;
 
 import com.java.learningSeries.modernjavainaction.auxiliaryclasses.Apple;
 
@@ -7,7 +7,6 @@ import java.io.File;
 import java.io.FileFilter;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.function.Predicate;
 
 import static java.util.stream.Collectors.toList;
 

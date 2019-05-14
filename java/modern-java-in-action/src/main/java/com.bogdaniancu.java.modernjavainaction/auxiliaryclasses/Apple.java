@@ -1,6 +1,5 @@
-package com.java.learningSeries.modernjavainaction.auxiliaryclasses;
+package com.bogdaniancu.java.modernjavainaction.auxiliaryclasses;
 
-import java.awt.*;
 
 public class Apple {
 
