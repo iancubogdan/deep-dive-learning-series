@@ -10,6 +10,9 @@
     <version>1.0-SNAPSHOT</version>
     <modules>
         <module>spring</module>
+        <module>computer-science</module>
+        <module>computer-science</module>
+        <module>java</module>
     </modules>
 
     <properties>
