@@ -1,4 +1,4 @@
-package com.bogdaniancu.computerscience.graphs;
+package com.bogdaniancu.computerscience.graphs.bfsdfs;
 
 import java.util.LinkedList;
 

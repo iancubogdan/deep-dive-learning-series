@@ -1,6 +1,7 @@
 package com.bogdaniancu.java.modernjavainaction.fundamentals;
 
-import com.java.learningSeries.modernjavainaction.auxiliaryclasses.Apple;
+
+import com.bogdaniancu.java.modernjavainaction.auxiliaryclasses.Apple;
 
 import java.awt.*;
 import java.io.File;

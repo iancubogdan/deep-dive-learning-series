@@ -13,7 +13,6 @@
     <packaging>pom</packaging>
     <modules>
         <module>modern-java-in-action</module>
-        <module>modern-java-in-action</module>
     </modules>
 
 
