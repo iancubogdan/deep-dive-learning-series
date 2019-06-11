@@ -31,6 +31,9 @@ public class FunctionalInterfaces {
         Predicate<String> nonEmptyStringPredicate = (String s) -> !s.isEmpty();
         ArrayList<String> listOfStrings = new ArrayList<>();
         List<String> nonEmpty = filter(listOfStrings, nonEmptyStringPredicate);
+
+        //with type inference
+        List<String> nonEmpty2 = filter(listOfStrings, s -> !s.isEmpty());
     }
 
     //Consumer
@@ -52,6 +55,10 @@ public class FunctionalInterfaces {
 
     public void useConsumer() {
         forEach(Arrays.asList(1,2,3,4,5), (Integer i) -> System.out.println(i));
+
+        //with Type inference
+        forEach(Arrays.asList(1,2,3,4,5), i -> System.out.println(i));
+
     }
 
     //Function
@@ -76,6 +83,10 @@ public class FunctionalInterfaces {
 
     public void useFunction() {
         List<Integer> l = map(Arrays.asList("lambdas", "in", "action"), (String s) -> s.length());
+
+        //With type inference
+        List<Integer> l1 = map(Arrays.asList("lambdas", "in", "action"), s -> s.length());
+
     }
 
 
