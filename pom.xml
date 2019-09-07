@@ -12,6 +12,7 @@
         <module>spring</module>
         <module>computer-science</module>
         <module>java</module>
+        <module>kotlin</module>
     </modules>
 
     <properties>
