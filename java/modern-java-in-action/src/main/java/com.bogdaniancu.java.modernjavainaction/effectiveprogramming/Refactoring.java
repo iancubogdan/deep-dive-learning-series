@@ -60,4 +60,6 @@ public class Refactoring {
 
         doSomething((Task)() -> System.out.println("Danger danger!!"));
     }
+
+
 }
