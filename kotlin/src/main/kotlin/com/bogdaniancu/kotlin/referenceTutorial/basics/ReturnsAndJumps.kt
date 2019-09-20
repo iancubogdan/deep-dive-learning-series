@@ -32,7 +32,72 @@ class ReturnsAndJumps {
         }
         //A break qualified with a label jumps to the execution point right after the loop marked with that label.
         // A continue proceeds to the next iteration of that loop.
-
     }
+
+
+    /**
+     * Return at Labels
+     *
+     * With function literals, local functions and object expression, functions can be nested in Kotlin. Qualified
+     * returns allow us to return from an outer function. The most important use case is returning from a lambda
+     * expression. Recall that when we write this:
+     */
+    fun foo1() {
+        listOf(1, 2, 3, 4, 5).forEach {
+            if (it == 3) return // non-local return directly to the caller of foo()
+            print(it)
+        }
+        println("this point is unreachable")
+    }
+
+    /**
+     * The return-expression returns from the nearest enclosing function, i.e. foo. (Note that such non-local returns
+     * are supported only for lambda expressions passed to inline functions.) If we need to return from a lambda
+     * expression, we have to label it and qualify the return:
+     */
+    fun foo2() {
+        listOf(1, 2, 3, 4, 5).forEach lit@{
+            if (it == 3) return@lit // local return to the caller of the lambda, i.e. the forEach loop
+            print(it)
+        }
+        print(" done with explicit label")
+    }
+
+    /**
+     * Alternatively, we can replace the lambda expression with an anonymous function. A return statement in an
+     * anonymous function will return from the anonymous function itself.
+     */
+
+    fun foo3() {
+        listOf(1, 2, 3, 4, 5).forEach(fun(value: Int) {
+            if (value == 3) return // local return to the caller of the anonymous fun, i.e. the forEach loop
+            print(value)
+        })
+        print(" done with anonymous function")
+    }
+
+    /**
+     * Note that the use of local returns in previous three examples is similar to the use of continue in regular loops.
+     * There is no direct equivalent for break, but it can be simulated by adding another nesting lambda and
+     * non-locally returning from it:
+     */
+
+    fun foo() {
+        run loop@{
+            listOf(1, 2, 3, 4, 5).forEach {
+                if (it == 3) return@loop
+                print(it)
+            }
+        }
+        print("done with nested loop")
+    }
+
+    /**
+     * When returning a value, the parser gives preference to the qualified return, i.e.
+
+        return@a 1
+
+     * means "return 1 at label @a" and not "return a labeled expression (@a 1)".
+     */
 
 }
