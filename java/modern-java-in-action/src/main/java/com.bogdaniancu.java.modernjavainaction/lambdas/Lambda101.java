@@ -44,5 +44,12 @@ public class Lambda101 {
         String oneLine = processFile((BufferedReader br) -> br.readLine());
 
         String twoLines = processFile((BufferedReader br) -> br.readLine() + br.readLine());
+
+        processFile(new BufferedReaderProcessor() {
+            @Override
+            public String process(BufferedReader b) throws IOException {
+                return b.readLine();
+            }
+        });
     }
 }

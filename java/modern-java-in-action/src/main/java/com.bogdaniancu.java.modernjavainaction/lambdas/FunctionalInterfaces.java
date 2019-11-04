@@ -39,7 +39,7 @@ public class FunctionalInterfaces {
     //Consumer
 
     /**
-     * use this interface when you need to access an object of type T and perform some oper- ations on it.
+     * use this interface when you need to access an object of type T and perform some operations on it.
      * @param <T>
      */
     @FunctionalInterface
