@@ -388,3 +388,4 @@ fun main() {
 //    val base1 = Base1("value")
     val derived1 = Derived1("john", "brown")
 }
+
