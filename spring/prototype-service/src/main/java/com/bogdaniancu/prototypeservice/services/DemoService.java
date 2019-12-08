@@ -14,5 +14,8 @@ public class DemoService {
     public void demo() {
         System.out.println(configurationService.getValue1());
         System.out.println(configurationService.getValue2());
+
+        System.out.println(configurationService.getMonitoring().getValue1());
+        System.out.println(configurationService.getMonitoring().getValue2());
     }
 }
