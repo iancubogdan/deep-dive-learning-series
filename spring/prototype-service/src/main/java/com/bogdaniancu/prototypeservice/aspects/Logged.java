@@ -14,9 +14,11 @@ import java.lang.annotation.RetentionPolicy;
 import java.lang.annotation.Target;
 
 @Retention(RetentionPolicy.RUNTIME)
-@Target(ElementType.TYPE)
+@Target(ElementType.METHOD)
 //@Service
 //@Validated
 //@Transactional(propagation = Propagation.REQUIRED, timeout = 59)
 public @interface Logged {
+
+    LogLevel loglevel() default LogLevel.INFO;
 }
