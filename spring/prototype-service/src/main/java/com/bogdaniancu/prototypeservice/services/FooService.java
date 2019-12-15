@@ -1,6 +1,7 @@
 package com.bogdaniancu.prototypeservice.services;
 
 import com.bogdaniancu.prototypeservice.aspects.Logged;
+import com.bogdaniancu.prototypeservice.aspects.Monitored;
 import com.bogdaniancu.prototypeservice.aspects.NotLogged;
 import com.bogdaniancu.prototypeservice.data.BarData;
 import com.bogdaniancu.prototypeservice.data.FooData;
@@ -22,6 +23,7 @@ public class FooService {
     }
 
     @Logged
+    @Monitored
     public void foo(@NotLogged FooData fooData) {
         BarData barData = new BarData();
         barData.setPublicField1("public1");
@@ -29,7 +31,7 @@ public class FooService {
         barData.setPrivateField3("private3");
         barData.setPublicField4("public4");
 
-        System.out.println(fooData);
+//        System.out.println(fooData);
         barService.bar(fooData, barData);
     }
 }
