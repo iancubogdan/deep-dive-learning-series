@@ -156,7 +156,9 @@ public class Streams101 {
                                         .flatMap(i -> numbers2.stream()
                                                                 .map(j -> new int[]{i,j}))
                                         .collect(toList());
+        System.out.println(pairs);
     }
+
 
     public void findingAndMathingOperations() {
         //Checking to see if a predicate matches at least one element
@@ -344,11 +346,13 @@ public class Streams101 {
     public static void main(String[] args) {
         Streams101 streams101 = new Streams101();
 
-        streams101.useIt();
+//        streams101.useIt();
+//
+//        streams101.numericStreams();
+//
+//        streams101.buildingStreams();
 
-        streams101.numericStreams();
-
-        streams101.buildingStreams();
+        streams101.mappingOperations();
     }
 
 }

@@ -1,10 +1,6 @@
 package com.bogdaniancu.prototypeservice.aspects;
 
-
-/**
- * https://makeinjava.com/logging-aspect-restful-web-service-spring-aop-request-response/
- */
-
+import com.fasterxml.jackson.annotation.JsonIgnore;
 
 import java.lang.annotation.ElementType;
 import java.lang.annotation.Retention;
@@ -12,8 +8,6 @@ import java.lang.annotation.RetentionPolicy;
 import java.lang.annotation.Target;
 
 @Retention(RetentionPolicy.RUNTIME)
-@Target(ElementType.METHOD)
-public @interface Logged {
-
-    LogLevel loglevel() default LogLevel.INFO;
+@Target({ElementType.ANNOTATION_TYPE, ElementType.FIELD, ElementType.TYPE, ElementType.PARAMETER})
+public @interface NotLogged {
 }
