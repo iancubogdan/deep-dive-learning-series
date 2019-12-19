@@ -1,8 +1,8 @@
 package com.bogdaniancu.prototypeservice.services;
 
-import com.bogdaniancu.prototypeservice.aspects.LogLevel;
-import com.bogdaniancu.prototypeservice.aspects.Logged;
-import com.bogdaniancu.prototypeservice.aspects.Monitored;
+import com.bogdaniancu.prototypeservice.logging.LogLevel;
+import com.bogdaniancu.prototypeservice.logging.Logged;
+import com.bogdaniancu.prototypeservice.logging.Monitored;
 import com.bogdaniancu.prototypeservice.data.BarData;
 import com.bogdaniancu.prototypeservice.data.FooData;
 import org.springframework.stereotype.Service;

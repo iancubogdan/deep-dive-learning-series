@@ -1,6 +1,6 @@
 package com.bogdaniancu.prototypeservice.data;
 
-import com.bogdaniancu.prototypeservice.aspects.NotLogged;
+import com.bogdaniancu.prototypeservice.logging.NotLogged;
 import lombok.Data;
 
 @Data

@@ -25,6 +25,12 @@ class FooServiceTest {
         fooData.setPrivateField3("private3");
         fooData.setPublicField4("public4");
 
-        fooService.foo(fooData);
+        FooData fooData2 = new FooData();
+        fooData2.setPublicField1("public5");
+        fooData2.setPublicField2("public6");
+        fooData2.setPrivateField3("private7");
+        fooData2.setPublicField4("public8");
+
+        fooService.foo(fooData, fooData2);
     }
 }

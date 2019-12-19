@@ -1,6 +1,4 @@
-package com.bogdaniancu.prototypeservice.aspects;
-
-import com.fasterxml.jackson.annotation.JsonIgnore;
+package com.bogdaniancu.prototypeservice.logging;
 
 import java.lang.annotation.ElementType;
 import java.lang.annotation.Retention;

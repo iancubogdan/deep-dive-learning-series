@@ -1,14 +1,12 @@
 package com.bogdaniancu.prototypeservice.services;
 
-import com.bogdaniancu.prototypeservice.aspects.Logged;
-import com.bogdaniancu.prototypeservice.aspects.Monitored;
-import com.bogdaniancu.prototypeservice.aspects.NotLogged;
+import com.bogdaniancu.prototypeservice.logging.Logged;
+import com.bogdaniancu.prototypeservice.logging.Monitored;
+import com.bogdaniancu.prototypeservice.logging.NotLogged;
 import com.bogdaniancu.prototypeservice.data.BarData;
 import com.bogdaniancu.prototypeservice.data.FooData;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-
-import javax.validation.Valid;
 
 @Service
 public class FooService {
@@ -24,7 +22,7 @@ public class FooService {
 
     @Logged
     @Monitored
-    public void foo(@NotLogged FooData fooData) {
+    public void foo(FooData fooData, @NotLogged FooData fooData2) {
         BarData barData = new BarData();
         barData.setPublicField1("public1");
         barData.setPublicField2("public2");

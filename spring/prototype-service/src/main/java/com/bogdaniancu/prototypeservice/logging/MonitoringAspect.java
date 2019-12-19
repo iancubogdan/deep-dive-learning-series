@@ -1,7 +1,6 @@
-package com.bogdaniancu.prototypeservice.aspects;
+package com.bogdaniancu.prototypeservice.logging;
 
 
-import com.bogdaniancu.prototypeservice.helpers.ThreadData;
 import com.bogdaniancu.prototypeservice.helpers.Uuid;
 import org.aspectj.lang.ProceedingJoinPoint;
 import org.aspectj.lang.annotation.Around;
@@ -22,7 +21,7 @@ public class MonitoringAspect {
         this.uuid = uuid;
     }
 
-    @Around("@annotation(com.bogdaniancu.prototypeservice.aspects.Monitored)")
+    @Around("@annotation(com.bogdaniancu.prototypeservice.logging.Monitored)")
     public Object advice(ProceedingJoinPoint joinPoint) throws Throwable {
         MethodSignature methodSignature = (MethodSignature) joinPoint.getSignature();
         Monitored annotation = methodSignature.getMethod().getAnnotation(Monitored.class);

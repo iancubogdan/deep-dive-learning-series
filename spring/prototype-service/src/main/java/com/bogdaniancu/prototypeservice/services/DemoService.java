@@ -1,9 +1,8 @@
 package com.bogdaniancu.prototypeservice.services;
 
-import com.bogdaniancu.prototypeservice.aspects.Logged;
+import com.bogdaniancu.prototypeservice.logging.Logged;
 import com.bogdaniancu.prototypeservice.helpers.ConfigurationService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.stereotype.Service;
 
 @Service

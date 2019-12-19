@@ -1,4 +1,4 @@
-package com.bogdaniancu.prototypeservice.aspects;
+package com.bogdaniancu.prototypeservice.logging;
 
 import org.slf4j.Logger;
 
