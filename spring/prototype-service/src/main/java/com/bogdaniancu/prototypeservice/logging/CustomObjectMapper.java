@@ -24,11 +24,7 @@ public class CustomObjectMapper {
         objectMapper.setAnnotationIntrospector(new JacksonAnnotationIntrospector() {
             @Override
             public boolean hasIgnoreMarker(AnnotatedMember m) {
-                if(_findAnnotation(m, NotLogged.class) != null){
-                    return true;
-                } else {
-                    return false;
-                }
+                return (_findAnnotation(m, NotLogged.class) != null);
             }});
     }
 

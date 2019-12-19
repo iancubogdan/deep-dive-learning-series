@@ -23,29 +23,25 @@ public class MonitoringAspect {
 
     @Around("@annotation(com.bogdaniancu.prototypeservice.logging.Monitored)")
     public Object advice(ProceedingJoinPoint joinPoint) throws Throwable {
-        MethodSignature methodSignature = (MethodSignature) joinPoint.getSignature();
-        Monitored annotation = methodSignature.getMethod().getAnnotation(Monitored.class);
+//        MethodSignature methodSignature = (MethodSignature) joinPoint.getSignature();
+//        Monitored annotation = methodSignature.getMethod().getAnnotation(Monitored.class);
         long t0 = System.currentTimeMillis();
 
         Object returnedObject;
         try {
             returnedObject = joinPoint.proceed();
         } catch (Exception e) {
-            //TODO
-            long deltaMillis = System.currentTimeMillis() - t0;
             logger.error("Exception (): {}: {}",
                     e.getClass(), e.getMessage());
             throw e;
+        } finally {
+            long deltaMillis = System.currentTimeMillis() - t0;
+            logger.debug( "Method {}.{} took {} milliseconds to execute; uuid: {}",
+                    joinPoint.getTarget().getClass().getSimpleName(),
+                    joinPoint.getSignature().getName(),
+                    deltaMillis,
+                    uuid.getUuid());
         }
-        long deltaMillis = System.currentTimeMillis() - t0;
-        logger.debug( "Method {}.{} took {} milliseconds to execute uuid: {}",
-                joinPoint.getTarget().getClass().getSimpleName(),
-                joinPoint.getSignature().getName(),
-                deltaMillis,
-                uuid.getUuid());
-//                ThreadData.getUuid());
-
-//        logger.debug("Call took {} milliseconds", deltaMillis);
         return returnedObject;
     }
 
