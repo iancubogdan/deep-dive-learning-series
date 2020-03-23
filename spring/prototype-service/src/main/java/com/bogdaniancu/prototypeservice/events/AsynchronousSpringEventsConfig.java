@@ -9,11 +9,11 @@ import org.springframework.core.task.SimpleAsyncTaskExecutor;
 @Configuration
 public class AsynchronousSpringEventsConfig {
 
-    @Bean
-    public ApplicationEventMulticaster applicationEventMulticaster() {
-        SimpleApplicationEventMulticaster eventMulticaster = new SimpleApplicationEventMulticaster();
-
-        eventMulticaster.setTaskExecutor(new SimpleAsyncTaskExecutor());
-        return eventMulticaster;
-    }
+//    @Bean
+//    public ApplicationEventMulticaster applicationEventMulticaster() {
+//        SimpleApplicationEventMulticaster eventMulticaster = new SimpleApplicationEventMulticaster();
+//
+//        eventMulticaster.setTaskExecutor(new SimpleAsyncTaskExecutor());
+//        return eventMulticaster;
+//    }
 }
