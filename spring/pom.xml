@@ -13,6 +13,7 @@
     <packaging>pom</packaging>
     <modules>
         <module>cloud</module>
+        <module>circuit-breaker</module>
     </modules>
 
     <dependencies>
