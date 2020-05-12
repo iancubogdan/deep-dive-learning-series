@@ -1,0 +1,29 @@
+version: '3.7'
+
+services:
+  demo-service:
+#    container_name: demo-service
+    image: demo-service:2
+    networks:
+      - inbound
+    ports:
+      - 8090:8090
+    expose:
+      - 8090
+    deploy:
+      mode: replicated
+      replicas: 3
+      update_config:
+        parallelism: 1
+        delay: 10s
+      labels:
+        - "traefik.http.routers.demoservice-app.rule=Host(`demoservice.localhost`)"
+        - "traefik.http.routers.demoservice-app.service=demoservice-app"
+        - "traefik.http.services.demoservice-app.loadbalancer.server.port=8090"
+        - "traefik.docker.network=inbound"
+        # Remove the line below to enable rate limiting. This will only allow avergae 1 request per second before erroring.
+      #  - "traefik.http.routers.demoservice-app.middlewares=demoservice-app@docker"
+      #  - "traefik.http.middlewares.demoservice-app.ratelimit.average=1"
+networks:
+  inbound:
+   external: true

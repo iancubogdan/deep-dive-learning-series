@@ -24,3 +24,8 @@ scrape_configs:
     scrape_interval: 5s
     static_configs:
       - targets: ['192.168.2.235:8091']
+
+  - job_name: 'traefik'
+    scrape_interval: 5s
+    static_configs:
+      - targets: ['192.168.2.235:8181']
