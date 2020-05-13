@@ -6,7 +6,7 @@ import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.web.bind.annotation.GetMapping;
 
 
-@FeignClient(name = "demoClient", url = "localhost:8090")
+@FeignClient(name = "demoClient", url = "http://demoservice.localhost")
 public interface DemoClient {
     @GetMapping("/demo")
 //    @CircuitBreaker(name = "demoClient")
