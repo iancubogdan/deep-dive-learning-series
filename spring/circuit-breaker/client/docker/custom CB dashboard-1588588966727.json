@@ -2,7 +2,6 @@
   "annotations": {
     "list": [
       {
-        "$$hashKey": "object:67",
         "builtIn": 1,
         "datasource": "-- Grafana --",
         "enable": true,
@@ -24,9 +23,9 @@
       "colorBackground": false,
       "colorValue": true,
       "colors": [
-        "#299c46",
-        "rgba(237, 129, 40, 0.89)",
-        "#d44a3a"
+        "#56A64B",
+        "#56A64B",
+        "#37872D"
       ],
       "datasource": null,
       "format": "none",
@@ -49,12 +48,10 @@
       "mappingType": 1,
       "mappingTypes": [
         {
-          "$$hashKey": "object:179",
           "name": "value to text",
           "value": 1
         },
         {
-          "$$hashKey": "object:180",
           "name": "range to text",
           "value": 2
         }
@@ -65,7 +62,7 @@
       "pluginVersion": "6.7.3",
       "postfix": "",
       "postfixFontSize": "50%",
-      "prefix": "Demo Service CB",
+      "prefix": "",
       "prefixFontSize": "50%",
       "rangeMaps": [
         {
@@ -99,21 +96,18 @@
       "valueFontSize": "80%",
       "valueMaps": [
         {
-          "$$hashKey": "object:182",
           "op": "=",
-          "text": "N/A",
+          "text": "",
           "value": "null"
         },
         {
-          "$$hashKey": "object:757",
           "op": "=",
           "text": "CLOSED",
           "value": "1"
         },
         {
-          "$$hashKey": "object:816",
           "op": "=",
-          "text": "N/A",
+          "text": "",
           "value": "0"
         }
       ],
@@ -124,9 +118,9 @@
       "colorBackground": false,
       "colorValue": true,
       "colors": [
-        "#299c46",
-        "rgba(237, 129, 40, 0.89)",
-        "#d44a3a"
+        "#C4162A",
+        "#C4162A",
+        "#C4162A"
       ],
       "datasource": null,
       "format": "none",
@@ -149,12 +143,10 @@
       "mappingType": 1,
       "mappingTypes": [
         {
-          "$$hashKey": "object:179",
           "name": "value to text",
           "value": 1
         },
         {
-          "$$hashKey": "object:180",
           "name": "range to text",
           "value": 2
         }
@@ -165,7 +157,7 @@
       "pluginVersion": "6.7.3",
       "postfix": "",
       "postfixFontSize": "50%",
-      "prefix": "Demo Service CB",
+      "prefix": "",
       "prefixFontSize": "50%",
       "rangeMaps": [
         {
@@ -199,21 +191,18 @@
       "valueFontSize": "80%",
       "valueMaps": [
         {
-          "$$hashKey": "object:182",
           "op": "=",
-          "text": "N/A",
+          "text": "",
           "value": "null"
         },
         {
-          "$$hashKey": "object:757",
           "op": "=",
           "text": "OPEN",
           "value": "1"
         },
         {
-          "$$hashKey": "object:816",
           "op": "=",
-          "text": "N/A",
+          "text": "",
           "value": "0"
         }
       ],
@@ -225,9 +214,9 @@
       "colorPostfix": false,
       "colorValue": true,
       "colors": [
-        "#d44a3a",
-        "#73BF69",
-        "#299c46"
+        "#FF9830",
+        "#FF9830",
+        "#FF9830"
       ],
       "datasource": null,
       "format": "none",
@@ -250,12 +239,10 @@
       "mappingType": 1,
       "mappingTypes": [
         {
-          "$$hashKey": "object:179",
           "name": "value to text",
           "value": 1
         },
         {
-          "$$hashKey": "object:180",
           "name": "range to text",
           "value": 2
         }
@@ -266,7 +253,7 @@
       "pluginVersion": "6.7.3",
       "postfix": "",
       "postfixFontSize": "50%",
-      "prefix": "Demo Service CB",
+      "prefix": "",
       "prefixFontSize": "50%",
       "rangeMaps": [
         {
@@ -300,27 +287,293 @@
       "valueFontSize": "80%",
       "valueMaps": [
         {
-          "$$hashKey": "object:182",
           "op": "=",
-          "text": "N/A",
+          "text": "",
           "value": "null"
         },
         {
-          "$$hashKey": "object:757",
           "op": "=",
           "text": "HALF-OPEN",
           "value": "1"
         },
         {
-          "$$hashKey": "object:816",
           "op": "=",
-          "text": "N/A",
+          "text": "",
           "value": "0"
         }
       ],
       "valueName": "current"
+    },
+    {
+      "aliasColors": {},
+      "bars": false,
+      "dashLength": 10,
+      "dashes": false,
+      "datasource": null,
+      "fill": 1,
+      "fillGradient": 0,
+      "gridPos": {
+        "h": 8,
+        "w": 12,
+        "x": 0,
+        "y": 4
+      },
+      "hiddenSeries": false,
+      "id": 6,
+      "legend": {
+        "avg": false,
+        "current": false,
+        "max": false,
+        "min": false,
+        "show": true,
+        "total": false,
+        "values": false
+      },
+      "lines": true,
+      "linewidth": 1,
+      "nullPointMode": "null",
+      "options": {
+        "dataLinks": []
+      },
+      "percentage": false,
+      "pointradius": 2,
+      "points": false,
+      "renderer": "flot",
+      "seriesOverrides": [],
+      "spaceLength": 10,
+      "stack": false,
+      "steppedLine": false,
+      "targets": [
+        {
+          "expr": "sum(rate(traefik_service_requests_total{service=\"demoservice-app@docker\"}[1m]))",
+          "interval": "",
+          "legendFormat": "Requests",
+          "refId": "A"
+        },
+        {
+          "expr": "sum(rate(traefik_service_requests_total{service=\"demoservice-app@docker\"}[1m])) by (code)",
+          "interval": "",
+          "legendFormat": "{{ code }}",
+          "refId": "B"
+        }
+      ],
+      "thresholds": [],
+      "timeFrom": null,
+      "timeRegions": [],
+      "timeShift": null,
+      "title": "Demo Service Traffic",
+      "tooltip": {
+        "shared": true,
+        "sort": 0,
+        "value_type": "individual"
+      },
+      "type": "graph",
+      "xaxis": {
+        "buckets": null,
+        "mode": "time",
+        "name": null,
+        "show": true,
+        "values": []
+      },
+      "yaxes": [
+        {
+          "format": "short",
+          "label": null,
+          "logBase": 1,
+          "max": null,
+          "min": null,
+          "show": true
+        },
+        {
+          "format": "short",
+          "label": null,
+          "logBase": 1,
+          "max": null,
+          "min": null,
+          "show": true
+        }
+      ],
+      "yaxis": {
+        "align": false,
+        "alignLevel": null
+      }
+    },
+    {
+      "cacheTimeout": null,
+      "datasource": null,
+      "gridPos": {
+        "h": 8,
+        "w": 8,
+        "x": 12,
+        "y": 4
+      },
+      "id": 8,
+      "links": [],
+      "options": {
+        "fieldOptions": {
+          "calcs": [
+            "lastNotNull"
+          ],
+          "defaults": {
+            "mappings": [
+              {
+                "id": 0,
+                "op": "=",
+                "text": "N/A",
+                "type": 1,
+                "value": "null"
+              },
+              {
+                "from": "",
+                "id": 1,
+                "operator": "",
+                "text": "N/A",
+                "to": "",
+                "type": 1,
+                "value": "-1"
+              }
+            ],
+            "max": 100,
+            "min": 0,
+            "nullValueMode": "connected",
+            "thresholds": {
+              "mode": "absolute",
+              "steps": [
+                {
+                  "color": "green",
+                  "value": null
+                },
+                {
+                  "color": "#EAB839",
+                  "value": 40
+                },
+                {
+                  "color": "red",
+                  "value": 50
+                }
+              ]
+            },
+            "unit": "percent"
+          },
+          "overrides": [],
+          "values": false
+        },
+        "orientation": "horizontal",
+        "showThresholdLabels": false,
+        "showThresholdMarkers": true
+      },
+      "pluginVersion": "6.7.3",
+      "targets": [
+        {
+          "expr": "resilience4j_circuitbreaker_failure_rate{name=\"demoService\"}",
+          "interval": "",
+          "legendFormat": "{{ name }}",
+          "refId": "A"
+        }
+      ],
+      "timeFrom": null,
+      "timeShift": null,
+      "title": "Failure Rate Demo Service",
+      "type": "gauge"
+    },
+    {
+      "aliasColors": {},
+      "bars": false,
+      "dashLength": 10,
+      "dashes": false,
+      "datasource": null,
+      "fill": 1,
+      "fillGradient": 0,
+      "gridPos": {
+        "h": 8,
+        "w": 17,
+        "x": 0,
+        "y": 12
+      },
+      "hiddenSeries": false,
+      "id": 10,
+      "legend": {
+        "alignAsTable": true,
+        "avg": true,
+        "current": true,
+        "max": true,
+        "min": true,
+        "rightSide": true,
+        "show": true,
+        "total": false,
+        "values": true
+      },
+      "lines": true,
+      "linewidth": 1,
+      "nullPointMode": "null",
+      "options": {
+        "dataLinks": []
+      },
+      "percentage": false,
+      "pointradius": 2,
+      "points": false,
+      "renderer": "flot",
+      "seriesOverrides": [],
+      "spaceLength": 10,
+      "stack": false,
+      "steppedLine": false,
+      "targets": [
+        {
+          "expr": "rate(resilience4j_circuitbreaker_calls_seconds_count{name=\"demoService\"}[1m])",
+          "interval": "",
+          "legendFormat": "{{ kind }} ",
+          "refId": "A"
+        },
+        {
+          "expr": "rate(resilience4j_circuitbreaker_calls_total{name=\"demoService\"}[1m])",
+          "interval": "",
+          "legendFormat": "{{ kind }} ",
+          "refId": "B"
+        }
+      ],
+      "thresholds": [],
+      "timeFrom": null,
+      "timeRegions": [],
+      "timeShift": null,
+      "title": "Panel Title",
+      "tooltip": {
+        "shared": true,
+        "sort": 0,
+        "value_type": "individual"
+      },
+      "type": "graph",
+      "xaxis": {
+        "buckets": null,
+        "mode": "time",
+        "name": null,
+        "show": true,
+        "values": []
+      },
+      "yaxes": [
+        {
+          "format": "short",
+          "label": null,
+          "logBase": 1,
+          "max": null,
+          "min": null,
+          "show": true
+        },
+        {
+          "format": "short",
+          "label": null,
+          "logBase": 1,
+          "max": null,
+          "min": null,
+          "show": true
+        }
+      ],
+      "yaxis": {
+        "align": false,
+        "alignLevel": null
+      }
     }
   ],
+  "refresh": "5s",
   "schemaVersion": 22,
   "style": "dark",
   "tags": [],
@@ -328,7 +581,7 @@
     "list": []
   },
   "time": {
-    "from": "now-6h",
+    "from": "now-5m",
     "to": "now"
   },
   "timepicker": {},
@@ -338,5 +591,5 @@
   "variables": {
     "list": []
   },
-  "version": 1
+  "version": 3
 }

@@ -8,18 +8,16 @@ import org.springframework.stereotype.Service;
 import org.springframework.web.client.HttpServerErrorException;
 
 @Service
-public class ClientService {
+public class DemoService {
 
     private DemoClient demoClient;
 
-    public ClientService(DemoClient demoClient) {
+    public DemoService(DemoClient demoClient) {
         this.demoClient = demoClient;
     }
 
-    @CircuitBreaker(name = "demoService")//, fallbackMethod = "getFallback")
+    @CircuitBreaker(name = "demoService", fallbackMethod = "getFallback")
     public String get() {
-//        throw new HttpServerErrorException(HttpStatus.INTERNAL_SERVER_ERROR, "This is a remote exception");
-//        return failure();
         return demoClient.get();
     }
 

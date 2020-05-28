@@ -28,3 +28,4 @@ services:
 networks:
   inbound:
    external: true
+   internal: true

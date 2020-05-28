@@ -1,4 +1,4 @@
-package com.bogdaniancu.circuitbreaker.client.custombuilt.service;
+package com.bogdaniancu.circuitbreaker.client.custombuilt.initial.service;
 
 import org.springframework.stereotype.Component;
 

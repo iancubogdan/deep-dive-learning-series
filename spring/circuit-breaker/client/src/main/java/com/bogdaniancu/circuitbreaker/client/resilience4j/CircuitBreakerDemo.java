@@ -11,9 +11,6 @@ import java.util.function.Supplier;
 
 public class CircuitBreakerDemo {
 
-    public void circuitBreakCall(CircuitBreaker circuitBreaker, BackendService service, String parameter) {
-        Supplier<String> decorated = CircuitBreaker.decorateSupplier(circuitBreaker,  () -> service.returnUppercase(parameter));
-    }
 
     public static void main(String[] args) {
         CircuitBreakerConfig circuitBreakerConfig = CircuitBreakerConfig.custom()

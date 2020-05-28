@@ -3,22 +3,20 @@ package com.bogdaniancu.circuitbreaker.client.custombuilt;
 import lombok.Data;
 import org.springframework.stereotype.Component;
 
-import java.time.LocalDateTime;
-import java.time.temporal.TemporalAmount;
 import java.util.Date;
 
-@Component
 @Data
-public class CircuitBreaker {
+@Component
+public class SimpleCircuitBreaker {
 
     enum State {
         Open, Closed, HalfOpen
     }
 
-    private static int FAILURE_THRESHOLD = 5;
-    private static int RESET_TIMEOUT = 1000;  //in milliseconds
+    private static int FAILURE_THRESHOLD = 3;
+    private static int RESET_TIMEOUT = 1000;
     private int failureCount = 0;
-    private long lastFailTime;
+    private long lastFailTime = Long.MAX_VALUE;
 
     public void recordFailure() {
         lastFailTime = new Date().getTime();
@@ -27,17 +25,30 @@ public class CircuitBreaker {
 
     public void reset() {
         failureCount = 0;
-        lastFailTime = 0;
+        lastFailTime = Long.MAX_VALUE;
     }
 
     public State getState() {
-        if (failureCount >= FAILURE_THRESHOLD &&
+        if (failureCount > FAILURE_THRESHOLD &&
                 (new Date().getTime() - lastFailTime) > RESET_TIMEOUT) {
             return State.HalfOpen;
         }
-        if (failureCount >= FAILURE_THRESHOLD) {
+
+        if (failureCount > FAILURE_THRESHOLD) {
             return State.Open;
         }
         return State.Closed;
+    }
+
+    public boolean isOpen() {
+        return getState().equals(State.Open);
+    }
+
+    public boolean isClosed() {
+        return getState().equals(State.Closed);
+    }
+
+    public boolean isHalfOpen() {
+        return getState().equals((State.HalfOpen));
     }
 }
