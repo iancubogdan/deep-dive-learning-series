@@ -32,6 +32,8 @@ resilience4j.circuitbreaker:
       waitDurationInOpenState: 50s
       failureRateThreshold: 50
       eventConsumerBufferSize: 10
+      ignoreExceptions:
+        - com.bogdaniancu.circuitbreaker.client.feign.clients.BusinessError
       recordExceptions:
         - java.lang.Throwable
         - org.springframework.web.client.HttpServerErrorException

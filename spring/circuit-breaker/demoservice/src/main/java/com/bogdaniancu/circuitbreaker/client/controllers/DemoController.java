@@ -13,11 +13,15 @@ public class DemoController {
 
     private boolean timeout;
     private boolean fail;
+    private boolean businessError;
 
     @GetMapping("/demo")
     public ResponseEntity<String> demoEndpoint() throws InterruptedException {
         if (fail) {
             throw new RuntimeException("Something bad happened");
+        }
+        if (businessError) {
+            return new ResponseEntity<>("Business error", HttpStatus. UNPROCESSABLE_ENTITY);
         }
         if (timeout) {
             Thread.sleep(20000);
@@ -35,6 +39,12 @@ public class DemoController {
     public ResponseEntity<String> setFail() {
         fail = true;
         return new ResponseEntity<>("set Fail", HttpStatus.OK);
+    }
+
+    @PostMapping("/setBusinessError")
+    public ResponseEntity<String> setBusinessError() {
+        businessError = true;
+        return new ResponseEntity<>("set BusinessError", HttpStatus.OK);
     }
 
     @PostMapping("/reset")
