@@ -31,12 +31,15 @@ public class SimpleCircuitBreaker {
     public State getState() {
         if (failureCount > FAILURE_THRESHOLD &&
                 (new Date().getTime() - lastFailTime) > RESET_TIMEOUT) {
+            System.out.println("CB State: Half-Open");
             return State.HalfOpen;
         }
 
         if (failureCount > FAILURE_THRESHOLD) {
+            System.out.println("CB State: Open");
             return State.Open;
         }
+        System.out.println("CB State: Closed");
         return State.Closed;
     }
 

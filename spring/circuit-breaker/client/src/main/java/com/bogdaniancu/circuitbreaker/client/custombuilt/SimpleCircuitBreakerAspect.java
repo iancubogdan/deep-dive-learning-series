@@ -19,7 +19,7 @@ public class SimpleCircuitBreakerAspect {
         System.out.println("NSA HERE: Phone line is tapped!");
         Object returnedObject = null;
         try {
-            if (cb.isClosed() || cb.isHalfOpen()) {
+            if (!cb.isOpen()) {
                 returnedObject = joinPoint.proceed();
                 cb.reset();
             }

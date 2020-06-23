@@ -2,6 +2,7 @@ package com.bogdaniancu.circuitbreaker.client.feign.service;
 
 import com.bogdaniancu.circuitbreaker.client.feign.clients.DemoClient;
 import com.bogdaniancu.circuitbreaker.client.feign.clients.ServiceError;
+import io.github.resilience4j.circuitbreaker.CallNotPermittedException;
 import io.github.resilience4j.circuitbreaker.annotation.CircuitBreaker;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
@@ -29,4 +30,9 @@ public class DemoService {
     public String getFallback(ServiceError serviceError) {
         return "It's really not the real me";
     }
+
+    public String getFallback(CallNotPermittedException callNotPermitted) {
+        return "CB Open";
+    }
+
 }

@@ -51,6 +51,7 @@ public class DemoController {
     public ResponseEntity<String> reset() {
         fail = false;
         timeout = false;
+        businessError = false;
         return new ResponseEntity<>("reset", HttpStatus.OK);
     }
 
